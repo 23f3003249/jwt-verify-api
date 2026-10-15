@@ -1,5 +1,3 @@
 
 fastapi
-PyJWT[crypto]
-redis
 upstash-redis

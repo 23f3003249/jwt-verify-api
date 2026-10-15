@@ -7,14 +7,10 @@ from upstash_redis import Redis
 
 app = FastAPI()
 
-rest_url = os.getenv("UPSTASH_REDIS_REST_URL")
-rest_token = os.getenv("UPSTASH_REDIS_REST_TOKEN")
+url = os.getenv("UPSTASH_REDIS_REST_URL")
+token = os.getenv("UPSTASH_REDIS_REST_TOKEN")
 
-redis_client = (
-    Redis(url=rest_url, token=rest_token)
-    if rest_url and rest_token
-    else None
-)
+redis_client = Redis(url=url, token=token) if url and token else None
 
 
 @app.get("/healthz")

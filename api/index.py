@@ -53,3 +53,10 @@ async def verify_token(body: VerifyRequest):
             status_code=401,
             content={"valid": False},
         )
+
+@app.get("/healthz")
+async def healthz():
+    return {
+        "status": "ok",
+        "redis": "up"
+    }
